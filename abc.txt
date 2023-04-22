@@ -1,0 +1,23 @@
+1.filmCritics
+2.react-todo-app
+3.portfolio
+
+1.paytm-clone
+2.karnatakajanashakthi (NGO website)
+3.video Player
+4.typing game
+5.shopify-clone
+6.1-on1-personal-training
+8.memory-card-game
+9.RODE-Clone
+10.user-registration (PHP, MYSQL)
+
+curl -X POST "https://accounts.spotify.com/api/token" -H "Content-Type: application/x-www-form-urlencoded" -d "grant_type=client_credentials&client_id=4f183bac2d1844018b2fb19b76e70fed&client_secret=23eedc0a092b4fc09bb310c719e9f54b
+
+{"access_token":"BQBBfYORuzZBU4RSuzvszSSEm969LVfl0PLXR6u5XMXmBmzvIzO1_z7uodK5hpxFdnwTAc9H8tBVtn8-sqAjGAIH-LESuzEKoGOf1E2SikVhICEgukjX","token_type":"Bearer","expires_in":3600}
+
+
+https://open.spotify.com/artist/07dLDdQaGtCzRksu1phXbG?si=wAftMQ0RTkWL6dmFALK3NA
+
+curl "https://api.spotify.com/v1/artists/07dLDdQaGtCzRksu1phXbG" -H "Authorization: Bearer BQAACTE3sHGYolbQXXtPrEsfivMG4TOJcu5Cx1DdNm7ii3gu1aqxDJBEBzSYUhQPJ7FMagxaMmUpsfNW6_eX1kDWzYr1Oie432BdDC8xj1hqHlZH9pfK"
+
