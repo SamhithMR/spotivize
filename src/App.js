@@ -1,4 +1,4 @@
-import Recent from './components/Recent'
+import Timespent from './components/Timespent'
 import Login from './components/login'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
@@ -16,7 +16,8 @@ function App() {
 
   return (
     <div>
-      {token ? <Recent /> : <Login />}
+      {/* <Recent /> */}
+      {token ? <Timespent /> : <Login />}
     </div>
   )
 }

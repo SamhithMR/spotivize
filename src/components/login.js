@@ -10,8 +10,7 @@ function Login(){
           "user-modify-playback-state",
           "user-read-playback-state",
           "user-read-currently-playing",
-          "user-read-recently-played",
-          "user-top-read",
+          "user-read-recently-played"
         ];
         window.location.href = `${api_uri}?client_id=${client_id}&redirect_uri=${redirect_uri}&scope=${scope.join(
           " "
