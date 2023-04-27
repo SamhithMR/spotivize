@@ -1,11 +1,13 @@
 import Timespent from './components/Timespent'
 import TimeSpendPerHour from './components/TimeSpendPerHour'
+import TopArtists from './components/TopArtists';
 import Login from './components/login'
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 import {getToken, getTrack} from './store/credentials'
 import { fetchDataFromApi } from './utils/api';
+import TopGenere from './components/TopGener';
 
 function App() {
   const dispatch = useDispatch()
@@ -16,13 +18,10 @@ function App() {
   useEffect(()=>{
     const token_value = hash.substring(1).split("&")[0].split("=")[1];
     dispatch(getToken(token_value))
-
-    console.log(token_value);
     const today = new Date();
-    const lastWeekTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, 0, 0, 0).getTime();
+    const lastWeekTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, 0, 0, 0).getTime();
     fetchDataFromApi(`/me/player/recently-played?after=${lastWeekTimestamp}&limit=50`,token_value)
     .then((res)=>{
-      // console.log(res);
       dispatch(getTrack({data:res,loading:false}))
     })
     .catch((err)=>{
@@ -33,7 +32,7 @@ function App() {
   return (
     <div>
       {/* <Recent /> */}
-      {token ? <TimeSpendPerHour /> : <Login />}
+      {token ? <div style={{display:"flex", flexWrap:"wrap", backgroundColor:"#474747",minHeight:"100vh"}} > <TopGenere/> </div> : <Login />}
     </div>
   )
 }

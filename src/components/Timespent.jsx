@@ -4,20 +4,10 @@ import * as d3 from "d3";
 import { useSelector } from 'react-redux';
 
 function Timespent() {
-  const token = useSelector((state) => state.Credentials.token);
-
-  const [lastWeek, setLastWeek] = useState('');
+ const recentTracks = useSelector((state) => state.Credentials.recentTracks);
   const [chartData, setChartData] = useState([]);
 
-  const url = `/me/player/recently-played?after=${lastWeek}&limit=50`;
-  const { data, loading } = useFetch(url, token);
-
-  // Get last week's timestamp
-  useEffect(() => {
-    const today = new Date();
-    const lastWeekTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, 0, 0, 0).getTime();
-    setLastWeek(lastWeekTimestamp);
-  }, [token]);
+  const { data, loading } = recentTracks;
 
   // Prepare chart data
   useEffect(() => {
@@ -111,7 +101,7 @@ useEffect(() => {
 
 
   return (
-    <div style={{backgroundColor:"#474747",minHeight:"100vh"}}>
+    <div >
       {!loading && chartData.length > 0 && <div ref={chartContainer}></div>}
     </div>
   );
