@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import {getToken, getTrack} from './store/credentials'
 import { fetchDataFromApi } from './utils/api';
 import TopGenere from './components/TopGener';
+import './App.css'
 
 function App() {
   const dispatch = useDispatch()
@@ -19,7 +20,7 @@ function App() {
     const token_value = hash.substring(1).split("&")[0].split("=")[1];
     dispatch(getToken(token_value))
     const today = new Date();
-    const lastWeekTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 3, 0, 0, 0).getTime();
+    const lastWeekTimestamp = new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7, 0, 0, 0).getTime();
     fetchDataFromApi(`/me/player/recently-played?after=${lastWeekTimestamp}&limit=50`,token_value)
     .then((res)=>{
       dispatch(getTrack({data:res,loading:false}))
@@ -30,9 +31,14 @@ function App() {
   },[hash])
 
   return (
-    <div>
+    <div className='app'>
       {/* <Recent /> */}
-      {token ? <div style={{display:"flex", flexWrap:"wrap", backgroundColor:"#474747",minHeight:"100vh"}} > <TopGenere/> </div> : <Login />}
+      {token ? <div className='components'> 
+       <TopGenere/>
+      <TimeSpendPerHour />
+       <TopArtists />
+      <Timespent />
+       </div> : <Login />}
     </div>
   )
 }

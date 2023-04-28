@@ -11,7 +11,6 @@ function Timespent() {
 
   // Prepare chart data
   useEffect(() => {
-    console.log(data);
     const weekMap = {};
     data?.items?.forEach((item) => {
       const duration = Math.round(item?.track.duration_ms / 1000 / 60);
@@ -31,7 +30,8 @@ function Timespent() {
 
   // D3.js code to create bar chart
 useEffect(() => {
-  const margin = { top: 20, right: 20, bottom: 30, left: 40 };
+  console.log(chartData);
+  const margin = { top: 20, right: 20, bottom: 30, left: 50 };
   const width = 500 - margin.left - margin.right;
   const height = 300 - margin.top - margin.bottom;
 

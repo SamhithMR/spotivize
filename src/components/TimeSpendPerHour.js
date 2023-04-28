@@ -127,7 +127,7 @@ gradient.append("stop")
 
 
   return (
-    <div style={{backgroundColor:"#474747",minHeight:"100vh"}}>
+    <div>
       {!loading && chartData.length > 0 && <div ref={chartContainer}></div>}
     </div>
   );
