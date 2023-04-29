@@ -30,10 +30,17 @@ function Timespent() {
 
   // D3.js code to create bar chart
 useEffect(() => {
-  console.log(chartData);
-  const margin = { top: 20, right: 20, bottom: 30, left: 50 };
-  const width = 500 - margin.left - margin.right;
-  const height = 300 - margin.top - margin.bottom;
+
+  const margin = { top: 20, right: 20, bottom: 20, left: 20 };
+  const width = 400 - margin.left - margin.right;
+  const height = 250 - margin.top - margin.bottom;
+
+  const oldsvg = d3.select(chartContainer.current)
+  .select("svg");
+
+  if (!oldsvg.empty()) {
+    oldsvg.remove();
+  }
 
   const svg = d3.select(chartContainer.current)
     .append("svg")
@@ -59,7 +66,7 @@ useEffect(() => {
 
   const x = d3.scaleBand()
     .range([0, width])
-    .padding(0.1);
+    .padding(0.1)
 
   const y = d3.scaleLinear()
     .range([height, 0]);
@@ -87,11 +94,15 @@ useEffect(() => {
     .attr("y", d => y(d.duration) - 5)
     .attr("text-anchor", "middle")
     .text(d => `${d.duration} min`)
-    .style("fill", "white");
-
-  svg.append("g")
+    .style("fill", "#fff")
+    
+    svg.append("g")
     .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(x));
+    .call(d3.axisBottom(x))
+
+    svg.selectAll("text")
+   .style("fill", "white");
+
 
   // Remove y-axis
   svg.select(".domain").remove();

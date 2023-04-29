@@ -33,9 +33,16 @@ const chartContainer = useRef(null);
 
 useEffect(() => {
   // set the dimensions and margins of the graph
-  const margin = {top: 10, right: 30, bottom: 30, left: 30};
-  const width = 500 - margin.left - margin.right;
-  const height = 500 - margin.top - margin.bottom;
+  const margin = {top: 0, right: 0, bottom: 0, left: 0};
+  const width = 400 - margin.left - margin.right;
+  const height = 400 - margin.top - margin.bottom;
+
+  const oldsvg = d3.select(chartContainer.current)
+  .select("svg");
+
+if (!oldsvg.empty()) {
+  oldsvg.remove();
+}
 
   // append the svg object to the chart container
   const svg = d3.select(chartContainer.current)
@@ -60,10 +67,10 @@ useEffect(() => {
 gradient.append("stop")
   .attr("offset", "0%")
   .attr("stop-color", "#9fdf9f");
-
-gradient.append("stop")
+  
+  gradient.append("stop")
   .attr("offset", "100%")
-  .attr("stop-color", "#1e4d2b");
+  .attr("stop-color", "#1FDF64");
 
   // set the x scale for the bars
   const x = d3.scaleBand()

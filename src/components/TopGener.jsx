@@ -48,10 +48,10 @@ function TopGenere() {
       const nightProps = calculateTrackProps(results[3]);
   
       setChartData([
-        { label: "Morning", ...morningProps },
-        { label: "Afternoon", ...afternoonProps },
-        { label: "Evening", ...eveningProps },
         { label: "Night", ...nightProps },
+        { label: "Evening", ...eveningProps },
+        { label: "Afternoon", ...afternoonProps },
+        { label: "Morning", ...morningProps },
       ]);
     });
   }, [data]);
@@ -98,6 +98,10 @@ function TopGenere() {
     
     if (chartRef && chartRef.current && chartData.length > 0) {
       const datasets = chartData.map((data, index) => {
+        var hex = Math.floor((index / (3)) * (0xDF9F - 0xFDF64) + 0xFDF64).toString(16);
+        var red = (parseInt(hex, 16) >> 16) & 0xFF;
+        var green = (parseInt(hex, 16) >> 8) & 0xFF;
+        var blue = parseInt(hex, 16) & 0xFF;
         return {
           label: data.label,
           data: [
@@ -107,11 +111,11 @@ function TopGenere() {
             data.danceability,
             data.energy,
           ],
-          backgroundColor: `rgba(0, ${index * 155}, 0, 0.3)`,
+          backgroundColor: "rgba(" + red + "," + green + "," + blue + ",0.4)",
           borderColor: `rgba(0, ${index * 30}, 0, 0)`,
           pointBackgroundColor: `rgba(0, ${index * 30}, 0, 1)`,
           pointBorderWidth:1,
-          pointRadius:1.6,
+          pointRadius:2,
           pointBorderColor: '#fff',
           pointHoverBackgroundColor: '#fff',
           pointHoverBorderColor: `rgba(0, ${index * 30}, 0, 1)`,
@@ -170,8 +174,8 @@ function TopGenere() {
         
       });
 
-      chartInstanceRef.current.canvas.parentNode.style.width = '800px';
-      chartInstanceRef.current.canvas.parentNode.style.height = '600px';
+      chartInstanceRef.current.canvas.parentNode.style.width = '400px';
+      chartInstanceRef.current.canvas.parentNode.style.height = '400px';
 
     }
   }, [chartData]);
