@@ -116,22 +116,22 @@ function TopArtists() {
   }, [chartData]);
  
   return (
-    <div className='bubble_chart'>
-      {!loading && chartData.length > 0 && <div style={{display:"flex"}}>
+    <div >
+      {!loading && chartData.length > 0 && <div className='bubble_chart'>
         <div className='bubble_info'>
           <svg width="100" height="100" >
             <circle cx="50" cy="50" r="50" fill="#9fdf9f80" />
-            <text x="50" y="50" text-anchor="middle" fill="white" font-size="0.5rem">Top Viewed Artist</text>
+            <text x="50" y="50" textAnchor="middle" fill="white" fontSize="0.5rem">Top Viewed Artist</text>
           </svg>
           <svg width="50" height="50">
             <circle cx="25" cy="25" r="25" fill="#9fdf9f80" />
-            <text x="25" y="25" text-anchor="middle" fill="white" font-size="0.3rem">Lowest Viewed Artist</text>
+            <text x="25" y="25" textAnchor="middle" fill="white" fontSize="0.3rem">Lowest Viewed Artist</text>
           </svg>
         </div>
-        <div ref={chartContainer}></div>
+        <div className="bubbles" ref={chartContainer}></div>
         <div className='gener_colors'>
           {geners.map((gener,i)=>{
-           return gener != "" ?  <p style={{backgroundColor:`${gener_colors[i]}`}}>{gener}</p> :  <p>other</p>
+           return gener != "" ?  <p key={i} style={{backgroundColor:`${gener_colors[i]}`}}>{gener}</p> :  <p>other</p>
           })}
         </div>
         </div>}

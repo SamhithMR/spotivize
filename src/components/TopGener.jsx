@@ -54,7 +54,7 @@ function TopGenere() {
         { label: "Morning", ...morningProps },
       ]);
     });
-  }, [data]);
+  }, [data, token]);
   
   function getAudioFeatures(tracks, token) {
     const trackIds = tracks.map((track) => track.id).join(",");

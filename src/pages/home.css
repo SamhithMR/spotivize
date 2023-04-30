@@ -2,17 +2,25 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    place-content: center;
-    place-items: center;
-    gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+    align-items: end;
+    gap: 1.5rem;
+    padding: 1rem;
 }
-.components > *{
+.components  h4{
+    width: 85%;
+    margin: 0 auto;
+    color: #fff;
+    padding: 0.5rem;
+    text-align: center;
 }
 .components_wrapper h1{
     color: #fff !important;
     padding: 2vh;
     color: #b8fcb8;
 }
+
 
 .bubble_chart{
     display: flex;
@@ -41,11 +49,40 @@
 .gener_colors > p{
     background-color: #9fdf9f80;
     min-width: 5vw;
-    padding: 0.2rem 0;
+    padding: 0.2rem;
     text-align: center;
     color: #fff;
     border-radius: 5px;
 }
+
+
+/* track recommendation */
+.carosel{
+    display: flex;
+    gap: 1rem;
+    overflow-x: scroll;
+    padding: 1rem;
+}
+.carosel::-webkit-scrollbar {
+    height: 1px;
+  }
+  .carosel::-webkit-scrollbar-track {
+    background-color: #62626265;
+  }
+  .carosel::-webkit-scrollbar-thumb {
+    background-color: #c2c2c248;
+  }
+
+.recommendation_heading h3{
+    margin-left: 2rem;
+    color: #fff;
+    font-size: 5vh;
+}
+.recommneded_tracks{
+margin: 1rem 0;
+padding: 1rem 0;
+}
+
 
 @media screen and (max-width:720px) {
     .components{
@@ -53,6 +90,15 @@
         grid-template-rows: 1fr 1fr 1fr 1fr;
     }
     .bubble_chart{
+        flex-direction: column;
+    }
+    .bubble_info{
         flex-direction: row;
+    }
+    .gener_colors{
+        flex-direction: row;
+    }
+    .recommendation_heading h3{
+        margin-left: 0.8rem;
     }
 }
