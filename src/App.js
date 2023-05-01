@@ -28,8 +28,8 @@ function App() {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.Credentials.token)
 
-  // const hash = window.location.hash;
-  const hash = `access_token=BQAc1s4nQ50jJoAksD_esMbyIlV-Uyl5ppvI7hY4aqcp9aJizE1OrQdQkZjei9yg-MRXIIp2HGfHC4RULqDO9e0GvFzY599fHIe2DAgJ6Zupta6vyNEXTnymesPiiiPPjmuiddPWERQSB34n0BehxktCsVuIU5Uh-OTf4zHWqO8rf_jrh2lnexxntjM41JIlBar63HiIPFptxrEeKMKDGnM4im1Sbw&token_type=Bearer&expires_in=3600`;
+  const hash = window.location.hash;
+  // const hash = `access_token=BQAfgL3CBBQ5lMVxnoCaT-bV1DU5zkU_L5h33DWumpp-YFxbs1bY2sO9oQ0_Hqq_NcsOWxlxEusZCgZDU-fik1cfVngKJi_9zOfVs0BASqcLwoQMpWxbSaExcHM1jpD3uXufoYoVUgMIT_vwQ3cqP2PVSMRBaIcKBL8oib3FGx6cEMla2910EUFsPxUI0K6lkMHqu5Q1t5xTkNESkT0f2YVsyjTvQg&token_type=Bearer&expires_in=3600`;
   // const hash = `access_token=BQCUIVfzjVj2fPUU3kqGBUhRP0PaE5ZBy-U_e1bMrxLKbUADwB3NGrNYf8EMDwZEfOiUlN6850sstY8Qa0kbw4WgTS7IbfzOy1vRD21EypTDCE2ZCo02O8f3LPWj1VhdTBkqR17KqbNisMT-qeH-a6zGqSkyj2OiGgzzFKLRc7ECrfWf6fKMPUYTKm4cCngnPSGCRlKYEGqjiDLvXXTM-F7Rft1-6A&token_type=Bearer&expires_in=3600`;
   useEffect(()=>{
     const token_value = hash.substring(1).split("&")[0].split("=")[1];
