@@ -18,6 +18,7 @@
   height: 100vh;
   position: fixed;
   left: 0;
+  z-index: 30;
 }
 .left_top, .left_middel{
   display: flex;

@@ -1,0 +1,25 @@
+.search{
+    display: grid;
+    grid-template-rows: 20% 80%;
+}
+.search_header{
+
+}
+.search_container{
+    position: relative;
+    display: flex;
+}
+.search_container .search{
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translate(50%, -50%);
+    font-size: 4.3vh;
+}
+.search_container input{
+    padding: 0.8rem 1rem 0.8rem 8.3vh;
+    margin: 0.6rem;
+    border-radius: 12px;
+    border: none;
+    min-width: 20vw;
+}

@@ -35,7 +35,7 @@ function Home() {
     const [Timage, setTimage] = useState("");
     const [Tname, setTname] = useState("");
     const [Tartists, setTartist] = useState([]);
-    const [deviceID, setDeviceId] = useState(`1da81dec7d08dca5aa8961fecc3bcd7b1dd38a98`);
+    const [deviceID, setDeviceId] = useState(``);
 
     const getCurrentPlaybackState = async () => {
         const response = await fetchDataFromApi("/me/player", token);
@@ -61,21 +61,25 @@ function Home() {
         setInterval(() => {
           updateProgress();
         }, 1000);
-        console.log(duration + " " + progress);
       }, []);
 
-      const startPlayback = async () => {
+      const PlayerControlls = async (action) => {
         try {
-            const headers = {
-                Authorization: "Bearer " + token,
-                "Content-Type" : "application/json"
-              };
-          await axios.put(`https://api.spotify.com/v1/me/player/play?device_id=1da81dec7d08dca5aa8961fecc3bcd7b1dd38a98`, {  headers })
+          const headers = {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json"
+          };
+          deviceID && await axios.put(
+            `https://api.spotify.com/v1/me/player/${action}?device_id=${deviceID}`,
+            {},
+            { headers }
+          );
         } catch (err) {
           console.log(err);
           return err;
         }
       };
+      
       
     const [volume, setVolume] = useState(100);
     const handleVolumeChange = (event) => {
@@ -163,11 +167,11 @@ function Home() {
             </div>}
             { <div className='Player'>
                 <div className="player_info">
-                    <div className="Player_img"><LazyLoadImage src={Timage} /></div>
-                    <div className="player_desc"><h6>{Tname}</h6><p>{(Tartists?.map((x)=>(x.name)))}</p></div>
+                    {Timage !== "" && <div className="Player_img"><LazyLoadImage src={Timage} /></div>}
+                    {Tartists !== "" && <div className="player_desc"><h6>{Tname}</h6><p>{(Tartists?.map((x)=>(x.name)))}</p></div>}
                 </div>
                 <div className="player_contraollers">
-                    <div className="player_buttons" ><BiShuffle/><BiSkipPrevious /><div>{play ? <BsPauseCircleFill /> : <BsPlayCircleFill onClick={()=>(startPlayback())}/>}</div><BiSkipNext/><BiRepeat /></div>
+                    <div className="player_buttons" ><BiShuffle/><BiSkipPrevious onClick={()=>(PlayerControlls("previous"))}/><div>{play ? <BsPauseCircleFill onClick={()=>(PlayerControlls("pause"))}/> : <BsPlayCircleFill onClick={()=>(PlayerControlls("play"))}/>}</div><BiSkipNext onClick={()=>(PlayerControlls("next"))}/><BiRepeat /></div>
                     <div className="player_progressBar">
                         <div className="progress_time">{(progress / 60000).toFixed(2)}</div>
                         <div className="progress-bar"><div className="progress" style={{ width: `${(progress / duration) * 100}%`}}></div></div>

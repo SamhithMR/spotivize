@@ -61,7 +61,7 @@
     display: flex;
     gap: 1rem;
     overflow-x: scroll;
-    padding: 1rem;
+    padding: 0.2rem 1rem;
 }
 .carosel::-webkit-scrollbar {
     height: 1px;
@@ -165,6 +165,9 @@ padding: 1rem 0;
     color: #fff;
     font-size: 5vh;
 }
+.player_buttons > *{
+    cursor: pointer;
+}
 .player_volume{
     justify-self: end;
     font-size: 4vh;
@@ -203,11 +206,39 @@ input[type=range] {
     }
     .bubble_info{
         flex-direction: row;
+        position: relative;
     }
     .gener_colors{
         flex-direction: row;
     }
     .recommendation_heading h3{
         margin-left: 0.8rem;
+    }
+.recommneded_tracks{
+    margin-block:0.2;
+    padding-block:0.2;
+    }
+    .Player{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 0.3fr;
+        align-content: center;
+        gap: 0rem;
+        bottom: 8%;
+    }
+    .player_volume{
+        display: none;
+    }
+    .player_buttons > *{
+        display: none;
+    }
+    .player_buttons div{
+        display: block;
+        position: absolute;
+        right: 10%;
+        top: -300%;
+        font-size: 6.5vh;
+    }
+    .player_contraollers{
+        position: relative;
     }
 }
