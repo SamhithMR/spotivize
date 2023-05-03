@@ -4,7 +4,8 @@ export const Credentials = createSlice({
     name: "Credentials",
     initialState: {
         token: "",
-        recentTracks:{data:{},loading:true}
+        recentTracks:{data:{},loading:true},
+        deviceID:""
     },
     reducers: {
         getToken: (state, action) => {
@@ -12,10 +13,13 @@ export const Credentials = createSlice({
         },
         getTrack: (state, action)=>{
             state.recentTracks = action.payload
+        },
+        getdeviceID: (state, action)=>{
+            state.deviceID = action.payload
         }
     },
 });
 
-export const { getToken, getTrack } = Credentials.actions;
+export const { getToken, getTrack, getdeviceID} = Credentials.actions;
 
 export default Credentials.reducer;

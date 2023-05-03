@@ -1,7 +1,6 @@
 
 
 import Home from './pages/Home'
-import Explore from './pages/Explore'
 import Details from './pages/Details'
 import Search from './pages/Search'
 
@@ -28,8 +27,8 @@ function App() {
   const dispatch = useDispatch()
   const token = useSelector((state) => state.Credentials.token)
 
-  // const hash = window.location.hash;
-  const hash = `access_token=BQDTNbTNTm3xj9cQycasqSnKMuzOkKYnhG0aMNn6ruCQLxlsUzfrIrQAl5L3WyPC7tpNsPrMEgLn-Nl-OHZClYgvkysX19W2gs41wmii4IpGXADM7FEOFclv8wZeaFWSA855df7zlhnFY04xu_PjYHd8R8XHW5gdllvQgXYk7ce8XQdqJkgNRkX10FUYvIB7Gc9MYIecveboDENAey_babuo7JP2dHXcPA&token_type=Bearer&expires_in=3600`;
+  const hash = window.location.hash;
+  // const hash = `access_token=BQDykfAE2u5iFE--G1KAJPCx9FhXR21E8vZwqS0PXQfJ4Wp6-HG33owhnwqYZLwyq9O-dD6uMj1aW9_Bed1uFnU6i9GkAYvCmN5T6eLYygK2CYy5ihCxlUwsL3f3ZultTlFqKBRwstYQ-6bQetpsWn4b8jBtLIPsQxajWlQB7reo0mzSTS3KFlJHAZ4pihtd9uxnrFCb_-ssaJ5ZwGrPcRL5t-BOAjtjxg&token_type=Bearer&expires_in=3600`;
   // const hash = `access_token=BQCUIVfzjVj2fPUU3kqGBUhRP0PaE5ZBy-U_e1bMrxLKbUADwB3NGrNYf8EMDwZEfOiUlN6850sstY8Qa0kbw4WgTS7IbfzOy1vRD21EypTDCE2ZCo02O8f3LPWj1VhdTBkqR17KqbNisMT-qeH-a6zGqSkyj2OiGgzzFKLRc7ECrfWf6fKMPUYTKm4cCngnPSGCRlKYEGqjiDLvXXTM-F7Rft1-6A&token_type=Bearer&expires_in=3600`;
   useEffect(()=>{
     const token_value = hash.substring(1).split("&")[0].split("=")[1];
@@ -61,7 +60,6 @@ function App() {
       <div className='right'>
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/explore/:id" element={<Explore />}></Route>
           <Route path="/search" element={<Search />}></Route>
           <Route path="/details/:id" element={<Details />}></Route>
         </Routes>

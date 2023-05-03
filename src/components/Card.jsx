@@ -2,11 +2,12 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import './Card.css'
 import { BsPlayCircleFill } from 'react-icons/bs';
 
-function Card({name, img_url, artists}){
+function Card({name, img_url, artists, onclick, track_id}){
+    console.log(onclick);
     // console.log(name, img_url, artists);
     return(
-        <div className="card">
-            <div className='image'><LazyLoadImage src={img_url} /><BsPlayCircleFill className='track_button'/></div>
+        <div className="card" onClick={() => onclick(track_id)}>
+            <div className='image'><LazyLoadImage src={img_url} /><BsPlayCircleFill className='track_button'  /></div>
             <div className="card_contents">
                 <h6>{name}</h6>
                 {artists && <div className="card_artists">
