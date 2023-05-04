@@ -12,7 +12,7 @@ import "../pages/home.css"
 function Player(){
     const [duration, setDuration] = useState(0);
     const [progress, setProgress] = useState(0);
-    const [play, setPlay] = useState(true);
+    const [play, setPlay] = useState(false);
     const [Timage, setTimage] = useState("");
     const [Tname, setTname] = useState("");
     const [Tartists, setTartist] = useState([]);
