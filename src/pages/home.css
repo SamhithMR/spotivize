@@ -87,7 +87,8 @@ padding: 1rem 0;
 /* player */
 
 .Player{
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
     position:fixed;
     left: 0;
     bottom: 0;
@@ -95,6 +96,7 @@ padding: 1rem 0;
     display: grid;
     gap: 1%;
     grid-template-columns: 32% 32% 32%;
+    
     padding: 0.4rem;
     z-index: 101;
     align-items: center;
@@ -167,6 +169,10 @@ padding: 1rem 0;
 }
 .player_buttons > *{
     cursor: pointer;
+    transition: ease 0.3s;
+}
+.player_buttons > *:hover{
+    color: #1FDF64;
 }
 .player_volume{
     justify-self: end;

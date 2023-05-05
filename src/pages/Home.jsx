@@ -8,6 +8,7 @@ import TopGenere from '../components/TopGener'
 import useFetch from '../hooks/useFetch';
 import Card from '../components/Card';
 
+import { useNavigate } from 'react-router-dom';
 import Player from '../components/player';
 import './home.css'
 
@@ -19,7 +20,7 @@ function Home() {
     const {data, loading } = useFetch(`/recommendations?limit=15&market=IN&seed_artists=${seed_Artists}`, token)
     const {data: artistsData, loading: artistsLoading } = useFetch(`/artists/${seed_Artists}/related-artists`, token)
     const {data: album, loading: albumLoading } = useFetch(`/browse/new-releases?country=IN&limit=10`, token)
-  
+   const navigate = useNavigate()
     const playTrack = async (track_id) => {
         const response = await fetch(`https://api.spotify.com/v1/me/player/play?device_id=${deviceID}`, {
             method: 'PUT',
@@ -38,7 +39,9 @@ function Home() {
             console.error(`Failed to start playing track : ${response.status} ${response.statusText}`);
         }
         };
-          
+    const getDetails = (id, type) =>{
+        navigate(`/details/${type}/${id}`)
+    }
     return(
         <div>
             <div className='components_wrapper'>
@@ -96,7 +99,7 @@ function Home() {
                 </div>
                 <div className="carosel">
                     { artistsData?.artists?.map((x,i)=> {
-                        return <Card key={i} name={x?.name} img_url={x?.images?.[0]?.url} artists={[]}/>})}
+                        return <Card key={i} name={x?.name} img_url={x?.images?.[0]?.url} track_id={x?.id} type={"artists"} onclick={getDetails}/>})}
                 </div>
 
             </div>}
@@ -106,7 +109,7 @@ function Home() {
                 </div>
                 <div className="carosel">
                     { album?.albums?.items?.map((x,i)=> {
-                        return <Card key={i} name={x?.name} img_url={x?.images?.[0]?.url} artists={x?.artists}/>})}
+                        return <Card key={i} name={x?.name} img_url={x?.images?.[0]?.url} artists={x?.artists} track_id={x?.id} type={"albums"} onclick={getDetails}/>})}
                 </div>
             </div>}
             <Player />

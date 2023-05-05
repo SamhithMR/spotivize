@@ -12,7 +12,7 @@
 
 .left{
   display: grid;
-  grid-template-rows: 15% 75%;
+  grid-template-rows: 15% 65% 15%;
   padding: 0.8rem;
   background-color: #121212;
   height: 100vh;
@@ -20,7 +20,7 @@
   left: 0;
   z-index: 102;
 }
-.left_top, .left_middel{
+.left_top, .left_middel, .user_profile > *{
   display: flex;
   flex-direction: column;
   font-size: 4vh;
@@ -28,7 +28,13 @@
   align-items: center;
   color: #fff;
   gap: 1.5rem;
+  transition: ease-in 0.25s;
 }
+
+.left_top>*:hover, .left_middel>*:hover, .user_profile>*:hover{
+  color: #1DB954;
+}
+
 .left_top, .left_middel > *{
   cursor: pointer;
 }
@@ -36,6 +42,30 @@
   width: 96%;
   margin-left: auto;
 }
+.user_profile{
+  position: relative;
+  cursor: pointer;
+}
+.profile{
+  position: absolute;
+  left: -1rem;
+  top: -4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5vh;
+  gap: 0.2rem;
+  background-color: #2e2e2e;
+}
+.profile > *{
+  padding: 0.4rem 0.6rem;
+  border: none;
+  cursor: pointer;
+  color: #1DB954;
+  background-color: #fff;
+}
+
 @media screen and (max-width:720px) {
   .right{
     width: 100%;
@@ -62,6 +92,9 @@
   .left_top{
     min-width: 20%;
     gap: 0;
+  }
+  .user_profile{
+    min-width: 20%;
   }
 }
 

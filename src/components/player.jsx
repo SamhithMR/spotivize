@@ -17,6 +17,7 @@ function Player(){
     const [Tname, setTname] = useState("");
     const [Tartists, setTartist] = useState([]);
     const [deviceID, setDeviceId] = useState(``);
+    const [volume, setVolume] = useState(100);
 
     
     const dispatch = useDispatch()
@@ -48,7 +49,7 @@ function Player(){
       useEffect(() => {
         setInterval(() => {
           updateProgress();
-        }, 100000);
+        }, 1000);
       }, []);
 
       const PlayerControlls = async (action) => {
@@ -66,9 +67,7 @@ function Player(){
           console.log(err);
           return err;
         }
-      };
-       
-    const [volume, setVolume] = useState(100);
+      };   
     const handleVolumeChange = (event) => {
     setVolume(event.target.value);
     setVolumeAPI(event.target.value);

@@ -137,4 +137,14 @@
     .getClientID button{
         border-radius: 10px;
     }
+    .temp_account_buttons > button{
+        align-items: center;
+        justify-content: center;
+    }
+    .demoAccount{
+        width: 90%;
+    }
+    .demoAccount>p{
+        width: 100%;
+    }
 }
