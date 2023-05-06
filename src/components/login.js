@@ -9,8 +9,9 @@ function Login(){
   const [clientid, setClientid] = useState('')
   const handleClick = async () => {
     // const client_id = "4f183bac2d1844018b2fb19b76e70fed";
-        // const client_id = "11b1a38a4b084705ac0b90b36ac1b234"; //fake
-        const redirect_uri = "http://localhost:3000/";
+        // const client_id = "11b1a38a4b084705ac0b90b36ac1b234";
+        // const redirect_uri = "http://localhost:3000/";
+        const redirect_uri = "https://spotivize.netlify.app/";
         const api_uri = "https://accounts.spotify.com/authorize";
         const scope = [
           "user-read-private",
@@ -58,8 +59,8 @@ return(
             <li>Go to <a target='_blanck' href="https://developer.spotify.com/dashboard/">Spotify developer dashboard</a></li> 
             <li>Log in to your Spotify account (or create one if you haven't already)</li>
             <li>Click on the "Create an app" button</li>
-            <li>Fill in the required fields and enter redirect URI as <button onClick={() => handleCopyClick('https://spotivize.neltlify.app/', 1)}><p> https://spotivize.neltlify.app </p>{copiedText1 ? <TiTick /> : <MdContentCopy />}</button></li>
-            <li>Copy your client ID from the dashboard and paste it here</li>
+            <li>Fill in the required fields and Be sure to enter your redirect URI as <button onClick={() => handleCopyClick('https://spotivize.neltlify.app/', 1)}><p> https://spotivize.neltlify.app </p>{copiedText1 ? <TiTick /> : <MdContentCopy />}</button></li>
+            <li>copy your client ID from the dashboard > settings and paste it here</li>
           </ul>
         </div>
         <div className='login_or'>
@@ -69,12 +70,12 @@ return(
         </div>
         <div className="demoAccount">
           <h6>Try with test account</h6>
+          <p>Note: Please note that some features require a premium Spotify account, and logging in with your own client ID is recommended. Alternatively, you may use the provided test account (although certain functions are not available).</p>
           <div className='temp_account_buttons'>
             <button onClick={() => handleCopyClick('yenavo9813@saeoil.com',2)} style={{backgroundColor:'#ffffff40',color:'#fff'}}><p> email </p>{copiedText2 ? <TiTick /> : <MdContentCopy />}</button>
             <button onClick={() => handleCopyClick('testing123', 3)}  style={{backgroundColor:'#ffffff40',color:'#fff'}}><p> password </p>{copiedText3 ? <TiTick /> : <MdContentCopy />}</button>
             <button onClick={handleClick}>connect spotify</button>  
           </div>  
-          <p>Note: Some of the Spotify API endpoints may not be available for this temporary (test) account. However, I have tested them using a premium account. You can try out your own account dashboard by providing your client ID.</p>
         </div>
 
     </div>

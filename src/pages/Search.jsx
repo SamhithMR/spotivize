@@ -3,9 +3,10 @@ import { useDispatch, useSelector} from 'react-redux'
 import Card from '../components/Card';
 import React,{ useEffect, useState} from 'react';
 import useFetch from '../hooks/useFetch';
+import Footer from '../components/footer'
+import Player from '../components/player';
 import './search.css'
 import './home.css'
-import Player from '../components/player';
 
 function Search() {
     const token = useSelector((state) => state.Credentials.token)
@@ -86,6 +87,7 @@ function Search() {
                 </div>
                 </div>}
             </div>
+            <Footer />
             <Player />
         </div>
     )

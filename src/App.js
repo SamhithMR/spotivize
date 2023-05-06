@@ -66,7 +66,7 @@ function App() {
         <div className='left_middel'>
           <HiOutlineHome onClick={()=>(navigate(`/`))}/>
           <FiSearch  onClick={()=>(navigate(`/search`))}/>
-          <SlPlaylist  onClick={()=>(navigate(`/explore/artists/1mYsTxnqsietFxj1OgoGbG`))}/>
+          {/* <SlPlaylist  onClick={()=>(navigate(`/explore/artists/1mYsTxnqsietFxj1OgoGbG`))}/> */}
         <div className='user_profile'>
           {Profile && <div className='profile'> <div>{name}</div><button onClick={handleLogout}>logout</button></div>}
           <CgProfile onClick={()=>(setProfile(!Profile))}/>

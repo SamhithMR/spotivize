@@ -7,6 +7,7 @@ import TopArtists from '../components/TopArtists';
 import TopGenere from '../components/TopGener'
 import useFetch from '../hooks/useFetch';
 import Card from '../components/Card';
+import Footer from '../components/footer'
 
 import { useNavigate } from 'react-router-dom';
 import Player from '../components/player';
@@ -112,6 +113,7 @@ function Home() {
                         return <Card key={i} name={x?.name} img_url={x?.images?.[0]?.url} artists={x?.artists} track_id={x?.id} type={"albums"} onclick={getDetails}/>})}
                 </div>
             </div>}
+            <Footer />
             <Player />
         </div>)
 }

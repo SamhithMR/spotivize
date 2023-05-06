@@ -3,6 +3,7 @@ import useFetch from '../hooks/useFetch';
 import * as d3 from "d3";
 import { useSelector } from 'react-redux';
 import { fetchDataFromApi } from '../utils/api';
+import { ColorRing } from 'react-loader-spinner';
 
 function TopArtists() {
   const token = useSelector((state) => state.Credentials.token);
@@ -41,7 +42,7 @@ function TopArtists() {
   // Ref for chart container
   const chartContainer = useRef(null);
 
-  const gener_colors = ["#9fdf9f80","#8ddf8c80","#7cbe7980","#6b9e6780","#5a7d5480","#1fdf6480"];
+  const gener_colors = ["#9fdf9f80","#8ddf8c80","#7cbe7980","#6b9e6780","#1FDF6480","#1fdf6480"];
   const geners = ["filmi", "pop", "hip hop", "jazz", "classical", ""]
 
   useEffect(() => {
@@ -93,11 +94,11 @@ function TopArtists() {
       .enter()
       .append("text")
       .attr("text-anchor", "middle")
-      .attr("font-size", "8px")
+      .attr("font-size", "9px")
       .attr("dy", ".2em")
       .text(d => d.name)
-      // .attr("fill","#ffffff85")
-      .attr("fill","#000000f")
+      .attr("fill","#ffffff85")
+      // .attr("fill","#000000f")
 
     // Define tick function
     const ticked = () => {
@@ -135,7 +136,18 @@ function TopArtists() {
           })}
         </div>
         </div>}
-    </div>
+        {loading && <div>
+          <ColorRing
+            visible={true}
+            height="80"
+            width="80"
+            speed="2"
+            ariaLabel="blocks-loading"
+            wrapperStyle={{}}
+            wrapperClass="blocks-wrapper"
+            colors={["#9fdf9f80","#8ddf8c80","#7cbe7980","#6b9e6780","#1FDF6480","#1fdf6480"]}
+          />
+          </div>}</div>
   );
 }
 

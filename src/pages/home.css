@@ -87,20 +87,18 @@ padding: 1rem 0;
 /* player */
 
 .Player{
-    width: 90%;
-    margin-left: auto;
+    width: 95%;
     position:fixed;
-    left: 0;
+    left: 3%;
     bottom: 0;
     background-color: #222222;
     display: grid;
     gap: 1%;
     grid-template-columns: 32% 32% 32%;
-    
     padding: 0.4rem;
     z-index: 101;
     align-items: center;
-    justify-content: center;
+    justify-content: end;
 }
 .player_info{
     display: grid;
@@ -230,6 +228,8 @@ input[type=range] {
         align-content: center;
         gap: 0rem;
         bottom: 8%;
+        left: 0%;
+        width: 100%;
     }
     .player_volume{
         display: none;

@@ -1,8 +1,9 @@
 import useFetch from "../hooks/useFetch"
 import { useDispatch, useSelector} from 'react-redux'
 import { useParams } from "react-router-dom"
-import './Details.css'
 import Player from '../components/player'
+import Footer from '../components/footer'
+import './Details.css'
 
 function Details() {
     const token = useSelector((state) => state.Credentials.token)
@@ -77,6 +78,7 @@ function Details() {
                     </div>
                     </div>}
             </div>
+            <Footer />
             <Player className="play"/>
         </div>
     )
