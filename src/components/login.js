@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { copy } from 'clipboard';
 import {MdContentCopy} from 'react-icons/md' 
 import {TiTick} from 'react-icons/ti' 
 import './login.css'
@@ -8,8 +7,6 @@ import './login.css'
 function Login(){
   const [clientid, setClientid] = useState('')
   const handleClick = async () => {
-    // const client_id = "4f183bac2d1844018b2fb19b76e70fed";
-        // const client_id = "11b1a38a4b084705ac0b90b36ac1b234";
         // const redirect_uri = "http://localhost:3000/";
         const redirect_uri = "https://spotivize.netlify.app/";
         const api_uri = "https://accounts.spotify.com/authorize";
@@ -21,10 +18,11 @@ function Login(){
           "user-read-currently-playing",
           "user-read-recently-played"
         ];
-        window.location.href = `${api_uri}?client_id=${clientid || "5d40182434594ddd8d2769625aaf36b5"}&redirect_uri=${redirect_uri}&scope=${scope.join(
+        window.location.href = `${api_uri}?client_id=${clientid || process.env.REACT_APP_CLIENT_ID}&redirect_uri=${redirect_uri}&scope=${scope.join(
           " "
         )}&response_type=token&show_dialog=true`;
       };
+      console.log(process.env.REACT_APP_CLIENT_ID);
 
 const [copiedText1, setCopiedText1] = useState('');
 const [copiedText2, setCopiedText2] = useState('');
